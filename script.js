@@ -2,9 +2,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const card = document.getElementById('invitation-card');
     const cardCover = document.querySelector('.card-cover');
 
+    // Music setup
+    let audio = new Audio('music.mp3');
+    audio.loop = true;
+
     // Toggle open state on click
     cardCover.addEventListener('click', () => {
         card.classList.toggle('is-open');
+        
+        // Play music when opened, pause when closed
+        if (card.classList.contains('is-open')) {
+            audio.play().catch(e => console.log('Esperando interacción para audio:', e));
+        } else {
+            audio.pause();
+        }
     });
     
     // Also allow clicking anywhere on the wrapper to open/close
