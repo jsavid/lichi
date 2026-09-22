@@ -1,11 +1,11 @@
 :root {
-    --bg-color: #050505;
-    --card-bg: #111315;
-    --gold: #d4af37;
-    --gold-light: #f3e5ab;
-    --gold-dark: #aa8c2c;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
+    --bg-color: #fcfbf9;
+    --card-bg: rgba(255, 255, 255, 0.85);
+    --gold: #b38728;
+    --gold-light: #d4af37;
+    --gold-dark: #8a6314;
+    --text-primary: #2a2a2a;
+    --text-secondary: #555555;
     --font-heading: 'Playfair Display', serif;
     --font-body: 'Outfit', sans-serif;
 }
@@ -18,7 +18,10 @@
 
 body {
     background-color: var(--bg-color);
-    background-image: radial-gradient(circle at center, #1a1a24 0%, #050505 100%);
+    background-image: url('fondo.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
     font-family: var(--font-body);
     color: var(--text-primary);
     min-height: 100vh;
@@ -115,8 +118,10 @@ body {
     height: 100%;
     backface-visibility: hidden;
     border-radius: 12px;
-    background: linear-gradient(135deg, #181a1f 0%, #0d0f12 100%);
-    border: 1px solid rgba(212, 175, 55, 0.2);
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(179, 135, 40, 0.3);
     overflow: hidden;
 }
 
@@ -125,7 +130,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(135deg, #0d0f12 0%, #181a1f 100%);
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 }
 
 .inner-decoration {
@@ -137,8 +144,10 @@ body {
 .card-inside {
     z-index: 1;
     padding: 40px 30px;
-    background: linear-gradient(to bottom right, #15171a, #0a0b0d);
-    border: 1px solid rgba(212, 175, 55, 0.1);
+    background-color: var(--card-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(179, 135, 40, 0.3);
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -192,11 +201,11 @@ body {
     font-family: var(--font-heading);
     font-size: 8rem;
     line-height: 1;
-    background: linear-gradient(to right, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+    background: linear-gradient(to right, #b38728, #d4af37, #8a6314);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     margin: 0;
-    text-shadow: 0 4px 20px rgba(212, 175, 55, 0.2);
+    text-shadow: 0 4px 10px rgba(179, 135, 40, 0.1);
 }
 
 .name {
@@ -277,12 +286,12 @@ body {
     display: flex;
     align-items: center;
     gap: 15px;
-    background: rgba(255, 255, 255, 0.03);
+    background: rgba(179, 135, 40, 0.08);
     padding: 15px 25px;
     border-radius: 8px;
     width: 100%;
     max-width: 250px;
-    border: 1px solid rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(179, 135, 40, 0.15);
 }
 
 .icon-wrapper {
@@ -312,28 +321,3 @@ body {
     margin-top: 2px;
 }
 
-.rsvp-button {
-    background: linear-gradient(135deg, var(--gold) 0%, var(--gold-dark) 100%);
-    color: #000;
-    border: none;
-    padding: 15px 30px;
-    border-radius: 30px;
-    font-family: var(--font-body);
-    font-size: 1rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 20px rgba(212, 175, 55, 0.2);
-}
-
-.rsvp-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(212, 175, 55, 0.3);
-    background: linear-gradient(135deg, var(--gold-light) 0%, var(--gold) 100%);
-}
-
-.rsvp-button:active {
-    transform: translateY(1px);
-}
