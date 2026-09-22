@@ -183,9 +183,10 @@ body {
 
 .subtitle {
     font-family: var(--font-body);
-    color: #000;
+    color: var(--gold-light);
+    -webkit-text-stroke: 1px #000;
+    text-shadow: none;
     font-weight: 700;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 1);
     font-size: 0.9rem;
     letter-spacing: 4px;
     text-transform: uppercase;
@@ -196,8 +197,9 @@ body {
     font-family: var(--font-heading);
     font-size: 8rem;
     line-height: 1;
-    color: #000;
-    text-shadow: 0 0 15px rgba(212, 175, 55, 1), 0 0 30px rgba(212, 175, 55, 0.8);
+    color: var(--gold);
+    -webkit-text-stroke: 3px #000;
+    text-shadow: none;
     margin: 0;
 }
 
@@ -218,8 +220,9 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 8px;
-    color: #000;
-    text-shadow: 0 0 10px rgba(212, 175, 55, 1);
+    color: var(--gold-light);
+    -webkit-text-stroke: 1px #000;
+    text-shadow: none;
     font-weight: 700;
     opacity: 0.8;
     animation: pulse 2s infinite;
@@ -256,8 +259,9 @@ body {
 .inside-content h3 {
     font-family: var(--font-heading);
     font-size: 2.2rem;
-    color: #000;
-    text-shadow: 0 0 12px rgba(212, 175, 55, 1);
+    color: var(--gold);
+    -webkit-text-stroke: 1.5px #000;
+    text-shadow: none;
     margin-bottom: 20px;
     font-weight: 700;
 }

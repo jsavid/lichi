@@ -3,18 +3,69 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardCover = document.querySelector('.card-cover');
 
     // Music setup
-    let audio = new Audio('music.mp3');
+    let audio = new Audio('Here_comes_the_sun.mp3');
     audio.loop = true;
+
+    function openCard() {
+        if (!card.classList.contains('is-open')) {
+            card.classList.add('is-open');
+            audio.play().catch(e => console.log('Esperando interacción para audio:', e));
+        }
+    }
+
+    function closeCard() {
+        if (card.classList.contains('is-open')) {
+            card.classList.remove('is-open');
+            audio.pause();
+        }
+    }
 
     // Toggle open state on click
     cardCover.addEventListener('click', () => {
-        card.classList.toggle('is-open');
-        
-        // Play music when opened, pause when closed
         if (card.classList.contains('is-open')) {
-            audio.play().catch(e => console.log('Esperando interacción para audio:', e));
+            closeCard();
         } else {
-            audio.pause();
+            openCard();
+        }
+    });
+
+    // Swipe logic
+    let startX = 0;
+    let endX = 0;
+
+    function handleSwipe() {
+        const threshold = 50;
+        if (startX - endX > threshold) {
+            // Swiped left (Right to Left) -> Open
+            openCard();
+        } else if (endX - startX > threshold) {
+            // Swiped right (Left to Right) -> Close
+            closeCard();
+        }
+    }
+
+    // Touch events
+    document.addEventListener('touchstart', (e) => {
+        startX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].screenX;
+        handleSwipe();
+    });
+
+    // Mouse events
+    let isMouseDown = false;
+    document.addEventListener('mousedown', (e) => {
+        isMouseDown = true;
+        startX = e.screenX;
+    });
+
+    document.addEventListener('mouseup', (e) => {
+        if (isMouseDown) {
+            endX = e.screenX;
+            handleSwipe();
+            isMouseDown = false;
         }
     });
     
