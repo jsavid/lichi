@@ -81,6 +81,30 @@ body {
     .card.is-open {
         transform: translateX(10%) rotateY(-10deg);
     }
+    
+    .card-inside {
+        padding: 25px 20px;
+    }
+    
+    .inside-content h3 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+    }
+    
+    .message {
+        font-size: 0.95rem;
+        margin-bottom: 20px;
+        line-height: 1.4;
+    }
+    
+    .details {
+        gap: 10px;
+        margin-bottom: 20px;
+    }
+    
+    .detail-item {
+        padding: 10px 15px;
+    }
 }
 
 /* Common Card Pages (Cover & Inside) */
